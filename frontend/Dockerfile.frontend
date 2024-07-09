@@ -1,0 +1,19 @@
+# Utiliza una imagen base de Node.js
+FROM node:20.7.0
+
+# Establece el directorio de trabajo en /app/frontend
+WORKDIR /app/frontend
+
+# Copia los archivos de la aplicación frontend al contenedor
+COPY . .
+
+
+# Instala las dependencias
+RUN npm install
+
+# Compila la aplicación frontend
+RUN npm run build
+
+
+# Comando para ejecutar la aplicación frontend
+CMD ["npm", "start"]
